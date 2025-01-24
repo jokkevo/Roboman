@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://eof20uax645t"]
+
+[ext_resource type="Texture2D" uid="uid://b8s8ljtcaot1b" path="res://Assets/2D/Characters/Enemy/Roboman_enemy_placeholder.png" id="1_6b65w"]
+[ext_resource type="Script" path="res://Scripts/test_enemy_1.gd" id="1_t37g1"]
+[ext_resource type="Script" path="res://Components/health.gd" id="2_x7xe5"]
+[ext_resource type="Script" path="res://Components/hurtbox.gd" id="2_y7jrd"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_snawr"]
+radius = 0.569965
+height = 1.23106
+
+[node name="Test_Enemy_1" type="Area3D"]
+script = ExtResource("1_t37g1")
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_x7xe5")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+billboard = 1
+texture_filter = 2
+texture = ExtResource("1_6b65w")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_snawr")
+
+[node name="HurtBox" type="Area3D" parent="." node_paths=PackedStringArray("health")]
+script = ExtResource("2_y7jrd")
+health = NodePath("../Health")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HurtBox"]
+shape = SubResource("CapsuleShape3D_snawr")
+
+[connection signal="health_depleted" from="Health" to="." method="_on_health_health_depleted"]

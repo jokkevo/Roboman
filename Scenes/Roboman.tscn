@@ -1,0 +1,275 @@
+[gd_scene load_steps=17 format=3 uid="uid://bk174wkfo1yp3"]
+
+[ext_resource type="Script" path="res://Scenes/roboman.gd" id="1_yteni"]
+[ext_resource type="Texture2D" uid="uid://dma2kuuhofxjo" path="res://Assets/2D/Characters/Roboman/Roboman_AnimationPlayer.png" id="2_7btir"]
+[ext_resource type="Script" path="res://Components/health.gd" id="2_12wdv"]
+[ext_resource type="Texture2D" uid="uid://befga0saf1ly5" path="res://Assets/FX/Arm_strike_1.png" id="2_j1lcu"]
+[ext_resource type="Script" path="res://Components/hitbox.gd" id="6_2ieye"]
+
+[sub_resource type="Animation" id="Animation_hvo5o"]
+resource_name = "Charge"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.133333, 0.3, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [37, 38, 39, 40]
+}
+
+[sub_resource type="Animation" id="Animation_1ova2"]
+resource_name = "Charge_attack_1"
+length = 0.55
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [41, 42, 43, 44, 45, 46, 47, 0]
+}
+
+[sub_resource type="Animation" id="Animation_5d5uf"]
+resource_name = "Fall"
+length = 0.15
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [24, 25, 26, 27, 28]
+}
+
+[sub_resource type="Animation" id="Animation_d2e2l"]
+resource_name = "Landing"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [28, 29, 30, 31, 32, 33, 34, 35, 36]
+}
+
+[sub_resource type="Animation" id="Animation_wa3iq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:attacking")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer:speed_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+
+[sub_resource type="Animation" id="Animation_vhiwp"]
+resource_name = "attack_1"
+length = 0.7
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.433333, 0.5, 0.566667, 0.633333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [41, 42, 43, 44, 45, 46, 45, 49, 59, 41]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite3D/Arm:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.266667, 0.333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:attacking")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.666667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimationPlayer:speed_scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.5, 1.5]
+}
+
+[sub_resource type="Animation" id="Animation_nuqrs"]
+resource_name = "idle"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.4, 0.433333, 0.466666, 0.5, 0.533333, 1, 1.06667, 1.13333, 1.2, 1.26667, 1.33333, 1.8, 1.86667, 1.93333, 1.99792, 2.06458, 2.6, 2.63333, 2.66667, 2.7, 2.73333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 2, 1, 0, 1, 2, 2, 1, 0, 0, 3, 3, 4, 5, 6, 5, 4, 3, 0, 0, 1, 2, 2, 1, 0]
+}
+
+[sub_resource type="Animation" id="Animation_5ifp8"]
+resource_name = "jump"
+length = 0.65
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667, 0.3, 0.333333, 0.366667, 0.4, 0.433333, 0.466667, 0.5, 0.533333, 0.566667, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 12, 13, 14, 15, 16, 17, 18]
+}
+
+[sub_resource type="Animation" id="Animation_2l8x2"]
+resource_name = "run"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite3D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.133333, 0.166667, 0.2, 0.233333, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [50, 51, 52, 53, 54, 55, 56, 57, 58]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer:speed_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [1.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2a8ig"]
+_data = {
+"Charge": SubResource("Animation_hvo5o"),
+"Charge_attack_1": SubResource("Animation_1ova2"),
+"Fall": SubResource("Animation_5d5uf"),
+"Landing": SubResource("Animation_d2e2l"),
+"RESET": SubResource("Animation_wa3iq"),
+"attack_1": SubResource("Animation_vhiwp"),
+"idle": SubResource("Animation_nuqrs"),
+"jump": SubResource("Animation_5ifp8"),
+"run": SubResource("Animation_2l8x2")
+}
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8xqj5"]
+radius = 0.128991
+height = 0.40446
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_yteni")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+pixel_size = 0.005
+shaded = true
+double_sided = false
+texture_filter = 0
+texture = ExtResource("2_7btir")
+hframes = 10
+vframes = 8
+frame = 41
+
+[node name="Arm" type="Sprite3D" parent="Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.240081, 0.0534407, -0.0076783)
+visible = false
+pixel_size = 0.005
+billboard = 2
+shaded = true
+texture_filter = 0
+texture = ExtResource("2_j1lcu")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_2a8ig")
+}
+autoplay = "idle"
+
+[node name="Health" type="Node" parent="."]
+script = ExtResource("2_12wdv")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00541735, 0.00391529, -0.00551176)
+shape = SubResource("CapsuleShape3D_8xqj5")
+
+[node name="HitBox" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.00389227, 0)
+script = ExtResource("6_2ieye")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="HitBox"]
+shape = SubResource("CapsuleShape3D_8xqj5")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.991347, 0.13127, 0, -0.13127, 0.991347, 0, 1.04108, 4.58746)
+fov = 50.0

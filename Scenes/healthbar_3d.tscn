@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dn2akielqkihn"]
+
+[ext_resource type="Texture2D" uid="uid://dk5v6qo6nfqxc" path="res://Assets/2D/GUI/Healthbar.png" id="1_ygwfx"]
+
+[node name="Healthbar3D" type="Sprite3D"]
+billboard = 1
+texture = ExtResource("1_ygwfx")
+
+[node name="SubViewport" type="SubViewport" parent="."]
