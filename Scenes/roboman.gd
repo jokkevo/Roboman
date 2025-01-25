@@ -60,8 +60,7 @@ func _physics_process(delta: float) -> void:
 	if move_dir == Vector3.ZERO:
 		velocity.x = move_toward(velocity.x, input_dir.x * SPEED, acceleration * delta)
 			
-	#Handle animations
-	#If attacking, play the attack animation and prevent other animations from interrupting
+
 	
 
 	# Move the character

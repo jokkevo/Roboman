@@ -245,7 +245,6 @@ frame = 41
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.240081, 0.0534407, -0.0076783)
 visible = false
 pixel_size = 0.005
-billboard = 2
 shaded = true
 texture_filter = 0
 texture = ExtResource("2_j1lcu")
