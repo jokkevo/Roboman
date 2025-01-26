@@ -35,6 +35,7 @@ func _physics_process(delta: float) -> void:
 	# Handle jump release for short hop
 	if Input.is_action_just_released("jump") and velocity.y > 0:
 		velocity.y *= 0.5
+		
 	
 			
 	# Handle jump
@@ -46,8 +47,11 @@ func _physics_process(delta: float) -> void:
 	
 	#Constrain the movement to X and Y vectors
 	var move_dir = Vector3(input_dir.x, 0, input_dir.y)
-	
-	velocity.x = move_toward(velocity.x, move_dir.x * SPEED, acceleration * delta)
+	if attacking and is_on_floor(): #stops the player from moving when is attacking
+		velocity = Vector3.ZERO
+		
+	else:
+		velocity.x = move_toward(velocity.x, move_dir.x * SPEED, acceleration * delta)
 
 	
 	if input_dir.x > 0:
@@ -72,7 +76,8 @@ func _physics_process(delta: float) -> void:
 func attack():
 	attacking = true
 	animation.play("attack_1")
-	# Set a timer or use an nimation callback to reset attacking flag after attacj animation finishes
+	
+
 
 func update_animation(_direction: Vector3) -> void:
 	if !attacking:

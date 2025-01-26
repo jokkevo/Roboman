@@ -272,3 +272,7 @@ shape = SubResource("CapsuleShape3D_8xqj5")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 0.991347, 0.13127, 0, -0.13127, 0.991347, 0, 1.04108, 4.58746)
 fov = 50.0
+
+[node name="attack_1_timer" type="Timer" parent="."]
+wait_time = 0.65
+one_shot = true
