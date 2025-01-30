@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwmo3mw5ex36c"]
+
+[ext_resource type="PackedScene" uid="uid://w0s8gidfiy60" path="res://Scenes/Enemy entities/base_enemy_entity.tscn" id="1_wmjiw"]
+[ext_resource type="Script" path="res://Scenes/Enemy entities/spider_bot.gd" id="2_ekxhu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_csjwo"]
+radius = 0.269843
+height = 0.674307
+
+[node name="Spider_Bot" groups=["player"] instance=ExtResource("1_wmjiw")]
+collision_layer = 8
+script = ExtResource("2_ekxhu")
+
+[node name="AnimationPlayer" parent="." index="1"]
+autoplay = "Spider_run"
+
+[node name="CollisionShape3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.335745, 0)
+shape = SubResource("CapsuleShape3D_csjwo")
+
+[node name="Wall_RayCast_Left" parent="Wall_Checks" index="0"]
+transform = Transform3D(-4.37114e-08, 0.283242, 0, -1, -1.23809e-08, 0, 0, 0, 1, 0, 0, 0)
+debug_shape_thickness = 5
+
+[node name="Wall_RayCast_Right" parent="Wall_Checks" index="1"]
+transform = Transform3D(-4.37114e-08, -0.2767, 0, 1, -1.20949e-08, 0, 0, 0, 1, 0, 0, 0)
+debug_shape_thickness = 5
+
+[node name="Floor_Raycast_Left" parent="Floor_Checks" index="0"]
+collide_with_areas = true
+
+[node name="Floor_Raycast_Right" parent="Floor_Checks" index="1"]
+collide_with_areas = true
+
+[node name="Player_Track_Raycast" parent="Player_Tracker_Pivot" index="0"]
+transform = Transform3D(-4.38145e-08, -1.14418, 0, 1.00236, -5.00136e-08, 0, 0, 0, 1.00236, -0.243691, 0, 0)
+collision_mask = 2

@@ -1,3 +1,4 @@
+class_name PlayerEntity
 extends CharacterBody3D
 
 @export var SPEED = 3.0

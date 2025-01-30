@@ -1,0 +1,103 @@
+[gd_scene load_steps=6 format=3 uid="uid://w0s8gidfiy60"]
+
+[ext_resource type="Texture2D" uid="uid://cw5dg1nu5wyne" path="res://Assets/2D/Characters/Enemy/Spider_bot_1/SpiderBot_1_animations.png" id="1_x3nhh"]
+
+[sub_resource type="Animation" id="Animation_2fred"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [9]
+}
+
+[sub_resource type="Animation" id="Animation_f5157"]
+resource_name = "Spider_idle"
+length = 0.4
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [10, 11, 12]
+}
+
+[sub_resource type="Animation" id="Animation_6e81b"]
+resource_name = "Spider_run"
+length = 0.54
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0666667, 0.133333, 0.2, 0.266667, 0.333333, 0.4, 0.466667, 0.533333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_i133m"]
+_data = {
+"RESET": SubResource("Animation_2fred"),
+"Spider_idle": SubResource("Animation_f5157"),
+"Spider_run": SubResource("Animation_6e81b")
+}
+
+[node name="Base_Enemy_Entity" type="CharacterBody3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.485462, 0)
+texture_filter = 0
+texture = ExtResource("1_x3nhh")
+hframes = 8
+vframes = 8
+frame = 9
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite3D")
+libraries = {
+"": SubResource("AnimationLibrary_i133m")
+}
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+
+[node name="Wall_Checks" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.262312, 0)
+
+[node name="Wall_RayCast_Left" type="RayCast3D" parent="Wall_Checks"]
+transform = Transform3D(-4.37114e-08, 0.565271, 0, -1, -2.47088e-08, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Wall_RayCast_Right" type="RayCast3D" parent="Wall_Checks"]
+transform = Transform3D(-4.37114e-08, -0.565271, 0, 1, -2.47088e-08, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="Floor_Checks" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0126416, 0)
+
+[node name="Floor_Raycast_Left" type="RayCast3D" parent="Floor_Checks"]
+transform = Transform3D(1, 0, 0, 0, 0.316923, 0, 0, 0, 1, -0.246511, 0.262313, 0)
+
+[node name="Floor_Raycast_Right" type="RayCast3D" parent="Floor_Checks"]
+transform = Transform3D(1, 0, 0, 0, 0.316923, 0, 0, 0, 1, 0.24335, 0.262313, 0)
+
+[node name="Player_Tracker_Pivot" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.316923, 0, 0, 0, 1, 0.24335, 0.274954, 0)
+
+[node name="Player_Track_Raycast" type="RayCast3D" parent="Player_Tracker_Pivot"]
+transform = Transform3D(-4.38145e-08, -3.4416, 0, 1.00236, -1.50437e-07, 0, 0, 0, 1.00236, -0.243295, 0, 0)
+
+[node name="Chase_Timer" type="Timer" parent="."]

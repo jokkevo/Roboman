@@ -1,0 +1,175 @@
+[gd_scene load_steps=18 format=3 uid="uid://5eyqjyvauwj4"]
+
+[ext_resource type="PackedScene" uid="uid://bk174wkfo1yp3" path="res://Scenes/Roboman.tscn" id="2_clnjx"]
+[ext_resource type="PackedScene" uid="uid://bmmm4vj7tojey" path="res://Assets/3D/Test Chamber/Platform_1.glb" id="2_iln41"]
+[ext_resource type="PackedScene" uid="uid://ck1e1wuaer5ah" path="res://Assets/3D/Test Chamber/Blueprint_Platform_1.glb" id="3_iro7m"]
+[ext_resource type="PackedScene" uid="uid://byev7pemnx3ov" path="res://Assets/3D/Test Chamber/Entrance.glb" id="4_mdvbl"]
+[ext_resource type="PackedScene" uid="uid://cgejrnasvyx4x" path="res://Assets/3D/Test Chamber/Entrance_Light.glb" id="5_denma"]
+[ext_resource type="PackedScene" uid="uid://smoyt246idrl" path="res://Assets/3D/Test Chamber/Entrance_Platform.glb" id="6_fu3x8"]
+[ext_resource type="PackedScene" uid="uid://d4gi2cccj0ehy" path="res://Assets/3D/Test Chamber/Roboman_test_chamber_1.glb" id="7_6m4rc"]
+[ext_resource type="PackedScene" uid="uid://bcjldfvq5acx0" path="res://Assets/3D/Test Chamber/Concrete_pillar.glb" id="8_vqhyh"]
+[ext_resource type="PackedScene" uid="uid://dyrwi13gkfyve" path="res://Assets/3D/Test Chamber/Platform_Support_2.glb" id="9_nojoi"]
+[ext_resource type="PackedScene" uid="uid://bwmo3mw5ex36c" path="res://Scenes/Enemy entities/spider_bot.tscn" id="10_gaali"]
+
+[sub_resource type="Environment" id="Environment_qgid2"]
+background_mode = 1
+background_color = Color(0.803306, 0.873454, 0.956345, 1)
+ssao_enabled = true
+ssao_radius = 0.6
+ssao_intensity = 1.6
+ssil_enabled = true
+glow_enabled = true
+fog_mode = 1
+fog_light_color = Color(0.755149, 0.805467, 0.956162, 1)
+fog_density = 1.0
+fog_height_density = 0.05
+fog_depth_curve = 1.46409
+fog_depth_begin = 8.5
+fog_depth_end = 20.0
+volumetric_fog_density = 0.0939
+volumetric_fog_albedo = Color(0.744567, 0.853542, 1, 1)
+volumetric_fog_emission = Color(0.288518, 0.288518, 0.288518, 1)
+volumetric_fog_anisotropy = -0.22
+adjustment_enabled = true
+adjustment_contrast = 1.13
+adjustment_saturation = 1.27
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_tfn18"]
+dof_blur_far_distance = 8.0
+dof_blur_far_transition = 7.1
+dof_blur_amount = 0.06
+
+[sub_resource type="Compositor" id="Compositor_omx4n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_lispx"]
+size = Vector3(1, 0.0955811, 3.59843)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bxi2h"]
+size = Vector3(1, 0.387009, 2.00037)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_t6uyo"]
+size = Vector3(0.990112, 0.133362, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_x2qs7"]
+size = Vector3(9.54083, 1, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_qgid2")
+camera_attributes = SubResource("CameraAttributesPractical_tfn18")
+compositor = SubResource("Compositor_omx4n")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_clnjx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.531507, -0.457229, -0.0221255)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.258819, 0.965926, 0, -0.965926, 0.258819, 4.27105, 4.99516, 3.03965)
+shadow_enabled = true
+
+[node name="Entrance_Platform" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.08643, -0.82058, -0.0578658)
+
+[node name="Entrance_Platform" parent="Entrance_Platform" instance=ExtResource("6_fu3x8")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entrance_Platform"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.72529e-09, -0.0140992, 0.835705)
+shape = SubResource("BoxShape3D_lispx")
+
+[node name="Platform" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.12963, -0.820621, -0.0611349)
+
+[node name="Keep this" parent="Platform" instance=ExtResource("2_iln41")]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0.00133679, 0.000650346, -0.0033319)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.156517, -0.00335717)
+shape = SubResource("BoxShape3D_bxi2h")
+
+[node name="Platform_Support_2" parent="." instance=ExtResource("9_nojoi")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.62075, -1.03853, 0.0001719)
+
+[node name="Platform_Support_3" parent="." instance=ExtResource("9_nojoi")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.26517, -1.03853, 0.0001719)
+
+[node name="Platform_Support_4" parent="." instance=ExtResource("9_nojoi")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.826551, -1.03853, 0.0001719)
+
+[node name="Entrance_Platform2" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.57175, -0.82058, 0.0104717)
+
+[node name="Entrance_Platform" parent="Entrance_Platform2" instance=ExtResource("6_fu3x8")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Entrance_Platform2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.72529e-09, -0.0140992, 0.835705)
+shape = SubResource("BoxShape3D_lispx")
+
+[node name="Platform2" type="StaticBody3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 7.61495, -0.820621, 0.013741)
+
+[node name="Keep this" parent="Platform2" instance=ExtResource("2_iln41")]
+transform = Transform3D(1, 0, 7.10543e-15, 0, 1, 0, -7.10543e-15, 0, 1, 0.00133679, 0.000650346, -0.0033319)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Platform2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0031457, -0.147512, -0.000965595)
+shape = SubResource("BoxShape3D_bxi2h")
+
+[node name="Platform_Support_5" parent="." instance=ExtResource("9_nojoi")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 6.86457, -1.03853, -0.0475658)
+
+[node name="Platform_Support_6" parent="." instance=ExtResource("9_nojoi")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 9.75049, -1.03853, -0.047566)
+
+[node name="Platform_Support_7" parent="." instance=ExtResource("9_nojoi")]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.31187, -1.03853, -0.0475659)
+
+[node name="Blueprint_Platform" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.26922, 0.189301, -0.0690281)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blueprint_Platform"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000549316, 0.00253296, 0)
+shape = SubResource("BoxShape3D_t6uyo")
+
+[node name="Blueprint_Platform_1" parent="Blueprint_Platform" instance=ExtResource("3_iro7m")]
+
+[node name="Blueprint_Platform2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.38334, 0.189301, -0.0690281)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Blueprint_Platform2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.000549316, 0.00253296, 0)
+shape = SubResource("BoxShape3D_t6uyo")
+
+[node name="Blueprint_Platform_1" parent="Blueprint_Platform2" instance=ExtResource("3_iro7m")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.209697, 0, 0, 0, 1, 4.83704, -1.28433, -0.0473247)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_x2qs7")
+
+[node name="Entrance2" parent="." instance=ExtResource("4_mdvbl")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.48546, 0.397649, -0.0225437)
+
+[node name="Entrance3" parent="." instance=ExtResource("4_mdvbl")]
+transform = Transform3D(1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, 10.9677, 0.397649, -0.0225437)
+
+[node name="Entrance_Light" parent="." instance=ExtResource("5_denma")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -2.32122, 0.556703, -0.0523893)
+
+[node name="Roboman_test_chamber_1" parent="." instance=ExtResource("7_6m4rc")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.0746825, -0.00184441, -1.98569)
+
+[node name="Concrete_pillar" parent="." instance=ExtResource("8_vqhyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.15688, 0.51569, -8.94292)
+
+[node name="Concrete_pillar2" parent="." instance=ExtResource("8_vqhyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.6346, 0.51569, -8.94292)
+
+[node name="Concrete_pillar3" parent="." instance=ExtResource("8_vqhyh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.89996, 0.51569, -8.94292)
+
+[node name="Spider_Bot" parent="." instance=ExtResource("10_gaali")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.85067, -1.18965, -0.100157)
+
+[node name="Spider_Bot2" parent="." instance=ExtResource("10_gaali")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.21259, 0.242883, -0.100065)

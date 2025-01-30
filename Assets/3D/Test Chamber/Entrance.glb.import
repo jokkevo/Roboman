@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://v6dmql53rggu"
-path="res://.godot/imported/Scifi_Wall_1.glb-e685263aaa14737a1092703c0fda725e.scn"
+uid="uid://byev7pemnx3ov"
+path="res://.godot/imported/Entrance.glb-2607aeeb3482de633178b34e40f2a2e8.scn"
 
 [deps]
 
-source_file="res://Assets/3D/Scifi_Wall_1.glb"
-dest_files=["res://.godot/imported/Scifi_Wall_1.glb-e685263aaa14737a1092703c0fda725e.scn"]
+source_file="res://Assets/3D/Test Chamber/Entrance.glb"
+dest_files=["res://.godot/imported/Entrance.glb-2607aeeb3482de633178b34e40f2a2e8.scn"]
 
 [params]
 

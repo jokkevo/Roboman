@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b62ylyixqhe0q"
-path.s3tc="res://.godot/imported/Scifi_Wall_1_Scifi_Wall_2_Texture.png-a0677bce8a970da0ed9ccde64b65dea2.s3tc.ctex"
+uid="uid://cbild1v71m7mg"
+path.s3tc="res://.godot/imported/Roboman_test_chamber_1_caution_tape_64x64.png-f31f634907999dfb9565e10ad73196da.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "383491583b41684b27d4c3f60a83bd02"
+"md5": "2570949034ab50816449ca9615f2480a"
 }
 
 [deps]
 
-source_file="res://Assets/3D/Scifi_Wall_1_Scifi_Wall_2_Texture.png"
-dest_files=["res://.godot/imported/Scifi_Wall_1_Scifi_Wall_2_Texture.png-a0677bce8a970da0ed9ccde64b65dea2.s3tc.ctex"]
+source_file="res://Assets/3D/Test Chamber/Roboman_test_chamber_1_caution_tape_64x64.png"
+dest_files=["res://.godot/imported/Roboman_test_chamber_1_caution_tape_64x64.png-f31f634907999dfb9565e10ad73196da.s3tc.ctex"]
 
 [params]
 
