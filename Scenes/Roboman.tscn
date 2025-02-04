@@ -1,10 +1,16 @@
-[gd_scene load_steps=17 format=3 uid="uid://bk174wkfo1yp3"]
+[gd_scene load_steps=23 format=3 uid="uid://bk174wkfo1yp3"]
 
 [ext_resource type="Script" path="res://Scenes/roboman.gd" id="1_yteni"]
 [ext_resource type="Texture2D" uid="uid://dma2kuuhofxjo" path="res://Assets/2D/Characters/Roboman/Roboman_AnimationPlayer.png" id="2_7btir"]
 [ext_resource type="Script" path="res://Components/health.gd" id="2_12wdv"]
 [ext_resource type="Texture2D" uid="uid://befga0saf1ly5" path="res://Assets/FX/Arm_strike_1.png" id="2_j1lcu"]
+[ext_resource type="Texture2D" uid="uid://c76rpdf7tut5f" path="res://Assets/FX/strike_blur_1.png" id="4_gov8l"]
+[ext_resource type="Texture2D" uid="uid://p036npvkpxu5" path="res://Assets/FX/strike_blur_2.png" id="5_ggrdd"]
 [ext_resource type="Script" path="res://Components/hitbox.gd" id="6_2ieye"]
+[ext_resource type="Texture2D" uid="uid://u1bvmrwteb47" path="res://Assets/FX/strike_blur_3.png" id="6_7olft"]
+[ext_resource type="Texture2D" uid="uid://d2l8yt3tm56gg" path="res://Assets/FX/strike_blur_4.png" id="7_ai70o"]
+[ext_resource type="Texture2D" uid="uid://02outntl3xal" path="res://Assets/FX/strike_blur_5.png" id="8_pgkqc"]
+[ext_resource type="Texture2D" uid="uid://dvbyhkou3w6ma" path="res://Assets/FX/strike_blur_6.png" id="9_h5ahg"]
 
 [sub_resource type="Animation" id="Animation_hvo5o"]
 resource_name = "Charge"
@@ -96,6 +102,78 @@ tracks/1/keys = {
 "update": 0,
 "values": [1.0]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite3D/Strike_blur_1:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite3D/Strike_blur_2:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite3D/Strike_blur_3:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite3D/Strike_blur_4:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite3D/Strike_blur_5:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprite3D/Strike_blur_6:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_vhiwp"]
 resource_name = "attack_1"
@@ -147,6 +225,78 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [1.5, 1.5]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Sprite3D/Strike_blur_1:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0.1, 0.133333, 0.2, 0.266667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Sprite3D/Strike_blur_2:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.1, 0.3, 0.333333, 0.366667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Sprite3D/Strike_blur_3:visible")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.1, 0.333333, 0.366667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Sprite3D/Strike_blur_4:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.1, 0.366667, 0.4, 0.433333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Sprite3D/Strike_blur_5:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.1, 0.4, 0.433333, 0.466667),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Sprite3D/Strike_blur_6:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0.1, 0.433333, 0.466667, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, false, true, false]
 }
 
 [sub_resource type="Animation" id="Animation_nuqrs"]
@@ -243,12 +393,47 @@ vframes = 8
 frame = 41
 
 [node name="Arm" type="Sprite3D" parent="Sprite3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.240081, 0.0534407, -0.0076783)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.364556, 0.014859, -0.0076783)
 visible = false
 pixel_size = 0.005
-shaded = true
 texture_filter = 0
 texture = ExtResource("2_j1lcu")
+
+[node name="Strike_blur_1" type="Sprite3D" parent="Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.097629, -0.0805066, 0.0209351)
+pixel_size = 0.005
+texture_filter = 0
+texture = ExtResource("4_gov8l")
+
+[node name="Strike_blur_2" type="Sprite3D" parent="Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.307051, -0.0461734, 0)
+pixel_size = 0.008
+texture_filter = 0
+texture = ExtResource("5_ggrdd")
+
+[node name="Strike_blur_3" type="Sprite3D" parent="Sprite3D"]
+transform = Transform3D(0.993111, 0.117173, 0, -0.117173, 0.993111, 0, 0, 0, 1, 0.378064, 0.0223885, -0.0524902)
+pixel_size = 0.008
+texture_filter = 0
+texture = ExtResource("6_7olft")
+
+[node name="Strike_blur_4" type="Sprite3D" parent="Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.343981, 0.0378873, -0.0202637)
+pixel_size = 0.008
+texture_filter = 0
+texture = ExtResource("7_ai70o")
+
+[node name="Strike_blur_5" type="Sprite3D" parent="Sprite3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.229856, 0.0402993, 0)
+pixel_size = 0.008
+texture_filter = 0
+texture = ExtResource("8_pgkqc")
+
+[node name="Strike_blur_6" type="Sprite3D" parent="Sprite3D"]
+transform = Transform3D(0.982606, 0.185701, 0, -0.185701, 0.982606, 0, 0, 0, 1, 0.207467, 0.0373142, 0)
+pixel_size = 0.005
+texture_filter = 0
+texture = ExtResource("9_h5ahg")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
